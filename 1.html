@@ -1,0 +1,25 @@
+<div class="content-section">
+	<form method="POST">
+		<input type="hidden" name="csrfmiddlewaretoken" value="bYgR3tYvXK78rjqiU8E0J93wdSejzHhmQwA4M0wll5eZIUQINXuZwMOEKgincPde">
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-4">Вход</legend>
+
+
+			<div id="div_id_username" class="mb-3"> <label for="id_username" class="form-label requiredField">
+                Имя пользователя<span class="asteriskField">*</span> </label>
+				<input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" class="textinput textInput form-control" required id="id_username"> </div>
+				<div id="div_id_password" class="mb-3"> <label for="id_password" class="form-label requiredField">
+                Пароль<span class="asteriskField">*</span> </label>
+					<input type="password" name="password" autocomplete="current-password" class="textinput textInput form-control" required id="id_password"> </div>
+
+		</fieldset>
+		<div class="form-group">
+			<button class="btn btn-outline-info" type="submit">Войти</button>
+		</div>
+	</form>
+	<div class="border-top pt-3">
+		<small class="text-muted">
+                Нужен аккаунт? <a class="ml-2" href="/register/">Регистрация</a>
+            </small>
+	</div>
+</div>

@@ -35,7 +35,7 @@ docker-up:
 
 .PHONY: docker-down
 docker-down:
-	docker-compose -f ./docker/docker-compose.yml down
+	docker-compose -f ./docker/docker-compose.yml down --remove-orphans
 
 .PHONY: docker-prune
 docker-prune:

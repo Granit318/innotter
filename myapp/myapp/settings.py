@@ -25,7 +25,8 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # DEBUG = config('DEBUG', cast=bool, default=True)
 DEBUG = os.environ["DEBUG"]
 
-ALLOWED_HOSTS = [os.environ["ALLOWED_HOSTS"]]
+# ALLOWED_HOSTS = [os.environ["ALLOWED_HOSTS"]]
+ALLOWED_HOSTS = ["localhost"]
 
 # Application definition
 
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     "page",
     "user",
     "rest_framework",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 SITE_ID = 1
@@ -127,3 +130,11 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGIN_URL = "login"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

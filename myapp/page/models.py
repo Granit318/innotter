@@ -2,9 +2,9 @@ from django.db import models
 
 
 class Page(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=80, default="page")
     uuid = models.CharField(max_length=30, unique=True)
-    description = models.TextField(max_length=180)
+    description = models.TextField(max_length=180, default="")
     tags = models.ManyToManyField("page.Tag", related_name="pages")
 
     owner = models.ForeignKey(
@@ -12,7 +12,7 @@ class Page(models.Model):
     )
     followers = models.ManyToManyField("user.User", related_name="follows")
 
-    image = models.URLField(null=True, blank=True)
+    image = models.URLField(null=True, blank=True, default="default.jpg")
 
     is_private = models.BooleanField(default=False)
     follow_requests = models.ManyToManyField("user.User", related_name="requests")
@@ -26,13 +26,13 @@ class Tag(models.Model):
 
 class Post(models.Model):
     page = models.ForeignKey(
-        Page, on_delete=models.CASCADE, related_name="posts", unique=True
+        Page, on_delete=models.CASCADE, related_name="posts"
     )
     content = models.CharField(max_length=180)
 
-    reply_to = models.ForeignKey(
-        "page.Post", on_delete=models.SET_NULL, null=True, related_name="replies"
-    )
+    # reply_to = models.ForeignKey(
+    #     "page.Post", on_delete=models.SET_NULL, null=True, related_name="replies"
+    # )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
